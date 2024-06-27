@@ -1,0 +1,57 @@
+Remove Duplicates from Sorted Array II
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int i =0;
+        for(int e=0;e<nums.size();e++){
+            if(i==0||i==1||nums[i-2]!=nums[e]){
+                nums[i]=nums[e];
+                i+=1;
+            }
+        }
+        return i;
+    }
+};
+Majority Element
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) 
+    {
+        int count=0;
+        int el;
+        for(int i=0;i<nums.size();i++)
+        {
+            if(count==0)
+            {
+                count=1;
+                el=nums[i];
+            }
+            else if(nums[i]==el)
+            {
+                count++;
+
+            }
+            else
+            {
+                count--;
+            }
+
+        }
+        int count1=0;
+        for(int i=0;i<nums.size();i++)
+        {
+            if(nums[i]==el)
+            {
+                count1++;
+            }
+        if(count1>(nums.size()/2))
+        {
+            return el;
+        }
+        }
+
+    return -1; 
+        
+    }  
+    
+};
